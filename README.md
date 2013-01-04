@@ -4,12 +4,10 @@ Canal
 Content analysis for the purpose of determining [Internet media types][1].
 
 
-
 Requirements
 ------------
 
  * PHP 5.3+
-
 
 
 Installation
@@ -21,27 +19,30 @@ Through [Composer][2] as [dflydev/canal][3].
 Usage
 -----
 
-    // Instantiate the Analyzer
-    $analyzer = new Dflydev\Canal\Analyzer\Analyzer;
+```php
+<?php
 
-    // Detect a media type from a filename (file does not need to exist)
-    $internetMediaType = $analyzer->detectFromFilename('/path/to/whatever.png');
+// Instantiate the Analyzer
+$analyzer = new Dflydev\Canal\Analyzer\Analyzer;
 
-    // See the media type as a string
-    print $internetMediaType->asString()."\n\n";
+// Detect a media type from a filename (file does not need to exist)
+$internetMediaType = $analyzer->detectFromFilename('/path/to/whatever.png');
 
-    // See the media type's type
-    print $internetMediaType->getType()."\n\n";
+// See the media type as a string
+print $internetMediaType->asString()."\n\n";
 
-    // See the media type's subtype
-    print $internetMediaType->getSubtype()."\n\n";
+// See the media type's type
+print $internetMediaType->getType()."\n\n";
 
-    // image/png
-    //
-    // image
-    //
-    // png
+// See the media type's subtype
+print $internetMediaType->getSubtype()."\n\n";
 
+// image/png
+//
+// image
+//
+// png
+```
 
 
 License
