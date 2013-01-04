@@ -1,9 +1,9 @@
 <?php
 
-namespace Dflydev\ContentAnalysis\Detector;
+namespace Dflydev\Canal\Detector;
 
-use Dflydev\ContentAnalysis\MediaType\MediaTypeParserInterface;
-use Dflydev\ContentAnalysis\Metadata\Metadata;
+use Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface;
+use Dflydev\Canal\Metadata\Metadata;
 
 class CompositeDetector implements DetectorInterface
 {
@@ -23,10 +23,10 @@ class CompositeDetector implements DetectorInterface
         $this->detectors[] = $detector;
     }
 
-    public function detect(MediaTypeParserInterface $mediaTypeParser, $input = null, Metadata $metadata = null)
+    public function detect(InternetMediaTypeParserInterface $internetMediaTypeParser, $input = null, Metadata $metadata = null)
     {
         foreach ($this->detectors as $detector) {
-            $type = $detector->detect($mediaTypeParser, $input, $metadata);
+            $type = $detector->detect($internetMediaTypeParser, $input, $metadata);
 
             if (null !== $type) {
                 return $type;

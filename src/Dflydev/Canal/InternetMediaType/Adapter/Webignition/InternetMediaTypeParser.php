@@ -1,10 +1,11 @@
 <?php
 
-namespace Dflydev\ContentAnalysis\MediaType;
+namespace Dflydev\Canal\InternetMediaType\Adapter\Webignition;
 
+use Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface;
 use webignition\InternetMediaType\Parser\Parser;
 
-class WebignitionMediaTypeParser implements MediaTypeParserInterface
+class InternetMediaTypeParser implements InternetMediaTypeParserInterface
 {
     private $parser;
 
@@ -19,6 +20,6 @@ class WebignitionMediaTypeParser implements MediaTypeParserInterface
 
     public function parse($type)
     {
-        return $this->parser->parse($type);
+        return new InternetMediaType($this->parser->parse($type));
     }
 }

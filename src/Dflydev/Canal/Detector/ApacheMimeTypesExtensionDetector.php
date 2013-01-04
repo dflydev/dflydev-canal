@@ -1,11 +1,11 @@
 <?php
 
-namespace Dflydev\ContentAnalysis\Detector;
+namespace Dflydev\Canal\Detector;
 
 use Dflydev\ApacheMimeTypes\PhpRepository;
 use Dflydev\ApacheMimeTypes\RepositoryInterface;
-use Dflydev\ContentAnalysis\MediaType\MediaTypeParserInterface;
-use Dflydev\ContentAnalysis\Metadata\Metadata;
+use Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface;
+use Dflydev\Canal\Metadata\Metadata;
 
 class ApacheMimeTypesExtensionDetector implements DetectorInterface
 {
@@ -20,7 +20,7 @@ class ApacheMimeTypesExtensionDetector implements DetectorInterface
         $this->repository = $repository;
     }
 
-    public function detect(MediaTypeParserInterface $mediaTypeParser, $input = null, Metadata $metadata = null)
+    public function detect(InternetMediaTypeParserInterface $internetMediaTypeParser, $input = null, Metadata $metadata = null)
     {
         if (null === $metadata) {
             return null;
@@ -37,7 +37,7 @@ class ApacheMimeTypesExtensionDetector implements DetectorInterface
         $type = $this->repository->findType($extension);
 
         if (null !== $type) {
-            return $mediaTypeParser->parse($type);
+            return $internetMediaTypeParser->parse($type);
         }
 
         return null;

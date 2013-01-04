@@ -1,6 +1,6 @@
 <?php
 
-namespace Dflydev\ContentAnalysis\Detector;
+namespace Dflydev\Canal\Detector;
 
 class DefaultDetectorFactory
 {

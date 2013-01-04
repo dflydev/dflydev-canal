@@ -1,6 +1,6 @@
 <?php
 
-namespace Dflydev\ContentAnalysis\Metadata;
+namespace Dflydev\Canal\Metadata;
 
 class Metadata
 {

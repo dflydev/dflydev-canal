@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Dflydev\\ContentAnalysis": "src"
+            "Dflydev\\Canal": "src"
         }
     },
     "extra": {
