@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="true" bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="Canal Test Suite">
+            <directory>./tests/Dflydev/Canal</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>./src/Dflydev/Canal/</directory>
+        </whitelist>
+    </filter>
+</phpunit>
