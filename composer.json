@@ -1,0 +1,33 @@
+{
+    "name": "dflydev/content-analysis",
+    "description": "Internet media type analysis framework",
+    "keywords": ["mime", "content", "type", "detection"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dragonfly Development Inc.",
+            "email": "info@dflydev.com",
+            "homepage": "http://dflydev.com"
+        },
+        {
+            "name": "Beau Simensen",
+            "email": "beau@dflydev.com",
+            "homepage": "http://beausimensen.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "dflydev/apache-mime-types": "1.0.*",
+        "webignition/internet-media-type": "0.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Dflydev\\ContentAnalysis": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
