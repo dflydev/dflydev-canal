@@ -1,6 +1,6 @@
 {
-    "name": "dflydev/content-analysis",
-    "description": "Internet media type analysis framework",
+    "name": "dflydev/canal",
+    "description": "Content analysis for the purpose of determining Internet media types.",
     "keywords": ["mime", "content", "type", "detection"],
     "license": "MIT",
     "authors": [
