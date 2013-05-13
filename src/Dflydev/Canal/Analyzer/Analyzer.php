@@ -37,6 +37,11 @@ class Analyzer
         return $this;
     }
 
+    public function detect($input = null, Metadata $metadata = null)
+    {
+        return $this->detector->detect($this->internetMediaTypeParser, $input, $metadata);
+    }
+
     public function detectFromFilename($filename)
     {
         $metadata = new Metadata;
