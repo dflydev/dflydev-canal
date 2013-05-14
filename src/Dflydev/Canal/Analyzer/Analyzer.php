@@ -37,6 +37,11 @@ class Analyzer
         return $this;
     }
 
+    public function getInternetMediaTypeParser()
+    {
+        return $this->internetMediaTypeParser;
+    }
+
     public function detect($input = null, Metadata $metadata = null)
     {
         return $this->normalizeInternetMediaType(
