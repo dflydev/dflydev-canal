@@ -39,7 +39,9 @@ class Analyzer
 
     public function detect($input = null, Metadata $metadata = null)
     {
-        return $this->detector->detect($this->internetMediaTypeParser, $input, $metadata);
+        return $this->normalizeInternetMediaType(
+            $this->detector->detect($this->internetMediaTypeParser, $input, $metadata)
+        );
     }
 
     public function detectFromFilename($filename)
@@ -47,6 +49,17 @@ class Analyzer
         $metadata = new Metadata;
         $metadata->set(Metadata::RESOURCE_NAME_KEY, $filename);
 
-        return $this->detector->detect($this->internetMediaTypeParser, null, $metadata);
+        return $this->normalizeInternetMediaType(
+            $this->detector->detect($this->internetMediaTypeParser, null, $metadata)
+        );
+    }
+
+    protected function normalizeInternetMediaType($internetMediaType = null)
+    {
+        if ($internetMediaType) {
+            return $internetMediaType;
+        }
+
+        return $this->internetMediaTypeParser->getFactory()->createApplicationOctetStream();
     }
 }
