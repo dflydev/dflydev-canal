@@ -42,6 +42,11 @@ class Analyzer
         return $this->internetMediaTypeParser;
     }
 
+    public function getInternetMediaTypeFactory()
+    {
+        return $this->internetMediaTypeParser->getFactory();
+    }
+
     public function detect($input = null, Metadata $metadata = null)
     {
         return $this->normalizeInternetMediaType(

@@ -21,4 +21,20 @@ class AnalyzerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('application/octet-stream', $internetMediaType->asString());
     }
+
+    public function testKnownTypeWithFactory()
+    {
+        $analyzer = new Analyzer;
+        $internetMediaType = $analyzer->detectFromFilename('/path/to/some-file.html');
+
+        $this->assertTrue($analyzer->getInternetMediaTypeFactory()->createText('html')->equals($internetMediaType));
+    }
+
+    public function testFallbackWithFactory()
+    {
+        $analyzer = new Analyzer;
+        $internetMediaType = $analyzer->detectFromFilename('/path/to/some-file.canal-extension-foo');
+
+        $this->assertTrue($analyzer->getInternetMediaTypeFactory()->createApplicationOctetStream()->equals($internetMediaType));
+    }
 }

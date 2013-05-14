@@ -9,4 +9,5 @@ interface InternetMediaTypeInterface
     public function getParameter($parameter);
     public function getParameters();
     public function asString();
+    public function equals(InternetMediaTypeInterface $that);
 }

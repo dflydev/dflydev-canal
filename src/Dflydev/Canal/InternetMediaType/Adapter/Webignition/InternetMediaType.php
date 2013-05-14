@@ -36,4 +36,13 @@ class InternetMediaType implements InternetMediaTypeInterface
     {
         return (string) $this->internetMediaType;
     }
+
+    public function equals(InternetMediaTypeInterface $that = null)
+    {
+        if (null === $that) {
+            return false;
+        }
+
+        return $this->asString() === $that->asString();
+    }
 }
