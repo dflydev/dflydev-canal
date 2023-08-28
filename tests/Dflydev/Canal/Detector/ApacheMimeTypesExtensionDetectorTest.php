@@ -2,14 +2,17 @@
 
 namespace Dflydev\Canal\Detector;
 
+use Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface;
+use Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface;
 use Dflydev\Canal\Metadata\Metadata;
+use PHPUnit\Framework\TestCase;
 
-class ApacheMimeTypesExtensionDetectorTest extends \PHPUnit_Framework_TestCase
+class ApacheMimeTypesExtensionDetectorTest extends TestCase
 {
     public function testDefaultRepositoryWithNoMetadata()
     {
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
-        $metadata = $this->getMock('Dflydev\Canal\Metadata\Metadata');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
+        $metadata = $this->getMockBuilder(Metadata::class)->getMock();
 
         $detector = new ApacheMimeTypesExtensionDetector;
 
@@ -19,8 +22,8 @@ class ApacheMimeTypesExtensionDetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testDefaultRepositoryWithNonsenseMetadata()
     {
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
-        $metadata = $this->getMock('Dflydev\Canal\Metadata\Metadata');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
+        $metadata = $this->getMockBuilder(Metadata::class)->getMock();
 
         $metadata
             ->expects($this->once())
@@ -36,9 +39,9 @@ class ApacheMimeTypesExtensionDetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testDefaultRepositoryWithMetadata()
     {
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
-        $metadata = $this->getMock('Dflydev\Canal\Metadata\Metadata');
-        $expectedInternetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
+        $metadata = $this->getMockBuilder(Metadata::class)->getMock();
+        $expectedInternetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
 
         $metadata
             ->expects($this->once())
@@ -66,10 +69,10 @@ class ApacheMimeTypesExtensionDetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testCustomRepositoryWithMetadata()
     {
-        $repository = $this->getMock('Dflydev\ApacheMimeTypes\RepositoryInterface');
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
-        $metadata = $this->getMock('Dflydev\Canal\Metadata\Metadata');
-        $expectedInternetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $repository = $this->getMockBuilder('Dflydev\ApacheMimeTypes\RepositoryInterface')->getMock();
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
+        $metadata = $this->getMockBuilder(Metadata::class)->getMock();
+        $expectedInternetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
 
         $repository
             ->expects($this->once())

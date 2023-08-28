@@ -2,9 +2,11 @@
 
 namespace Dflydev\Canal\InternetMediaType\Adapter\Webignition;
 
+use AllowDynamicProperties;
 use Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface;
 use webignition\InternetMediaType\InternetMediaType as WebignitionInternetMediaType;
 
+#[AllowDynamicProperties] 
 class InternetMediaType implements InternetMediaTypeInterface
 {
     public function __construct(WebignitionInternetMediaType $internetMediaType)

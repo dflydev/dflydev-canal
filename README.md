@@ -7,13 +7,16 @@ Content analysis for the purpose of determining [Internet media types][1].
 Requirements
 ------------
 
- * PHP 5.3+
+ * PHP 8.1+
 
 
 Installation
 ------------
  
 Through [Composer][2] as [dflydev/canal][3].
+```shell
+composer require dflydev/canal
+```
 
 
 Usage

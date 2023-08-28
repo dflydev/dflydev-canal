@@ -2,7 +2,9 @@
 
 namespace Dflydev\Canal\Metadata;
 
-class MetadataTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class MetadataTest extends TestCase
 {
     public function testSingle()
     {
