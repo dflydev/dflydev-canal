@@ -2,10 +2,12 @@
 
 namespace Dflydev\Canal\InternetMediaType\Adapter\Webignition;
 
+use AllowDynamicProperties;
 use Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface;
 use Dflydev\Canal\InternetMediaType\InternetMediaTypeFactory;
 use webignition\InternetMediaType\Parser\Parser;
 
+#[AllowDynamicProperties] 
 class InternetMediaTypeParser implements InternetMediaTypeParserInterface
 {
     private $parser;

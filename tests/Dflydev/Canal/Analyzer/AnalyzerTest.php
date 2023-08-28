@@ -3,8 +3,9 @@
 namespace Dflydev\Canal\Analyzer;
 
 use Dflydev\Canal\Metadata\Metadata;
+use PHPUnit\Framework\TestCase;
 
-class AnalyzerTest extends \PHPUnit_Framework_TestCase
+class AnalyzerTest extends TestCase
 {
     public function testKnownType()
     {

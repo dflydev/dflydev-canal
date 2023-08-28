@@ -2,12 +2,17 @@
 
 namespace Dflydev\Canal\Detector;
 
-class CompositeDetectorTest extends \PHPUnit_Framework_TestCase
+use Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface;
+use Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface;
+use Dflydev\Canal\Metadata\Metadata;
+use PHPUnit\Framework\TestCase;
+
+class CompositeDetectorTest extends TestCase
 {
     public function testEmpty()
     {
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
-        $metadata = $this->getMock('Dflydev\Canal\Metadata\Metadata');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
+        $metadata = $this->getMockBuilder(Metadata::class)->getMock();
 
         $detector = new CompositeDetector;
 
@@ -17,9 +22,9 @@ class CompositeDetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testAllFromConstructorWithNoMetadataFail()
     {
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
-        $internalDetector0 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
-        $internalDetector1 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
+        $internalDetector0 = $this->getMockBuilder(DetectorInterface::class)->getMock();
+        $internalDetector1 = $this->getMockBuilder(DetectorInterface::class)->getMock();
 
         $internalDetector0
             ->expects($this->once())
@@ -40,10 +45,10 @@ class CompositeDetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testAllFromConstructorWithMetadataFail()
     {
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
-        $metadata = $this->getMock('Dflydev\Canal\Metadata\Metadata');
-        $internalDetector0 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
-        $internalDetector1 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
+        $metadata = $this->getMockBuilder(Metadata::class)->getMock();
+        $internalDetector0 = $this->getMockBuilder(DetectorInterface::class)->getMock();
+        $internalDetector1 = $this->getMockBuilder(DetectorInterface::class)->getMock();
 
         $internalDetector0
             ->expects($this->once())
@@ -64,9 +69,9 @@ class CompositeDetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testAllFromConstructorAndAddWithNoMetadataFail()
     {
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
-        $internalDetector0 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
-        $internalDetector1 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
+        $internalDetector0 = $this->getMockBuilder(DetectorInterface::class)->getMock();
+        $internalDetector1 = $this->getMockBuilder(DetectorInterface::class)->getMock();
 
         $internalDetector0
             ->expects($this->once())
@@ -89,10 +94,10 @@ class CompositeDetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testAllFromConstructorAndAddWithMetadataFail()
     {
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
-        $metadata = $this->getMock('Dflydev\Canal\Metadata\Metadata');
-        $internalDetector0 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
-        $internalDetector1 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
+        $metadata = $this->getMockBuilder(Metadata::class)->getMock();
+        $internalDetector0 = $this->getMockBuilder(DetectorInterface::class)->getMock();
+        $internalDetector1 = $this->getMockBuilder(DetectorInterface::class)->getMock();
 
         $internalDetector0
             ->expects($this->once())
@@ -115,11 +120,11 @@ class CompositeDetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testFirstDetectorLocates()
     {
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
-        $metadata = $this->getMock('Dflydev\Canal\Metadata\Metadata');
-        $internalDetector0 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
-        $internalDetector1 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
-        $expectedInternetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
+        $metadata = $this->getMockBuilder(Metadata::class)->getMock();
+        $internalDetector0 = $this->getMockBuilder(DetectorInterface::class)->getMock();
+        $internalDetector1 = $this->getMockBuilder(DetectorInterface::class)->getMock();
+        $expectedInternetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
 
         $internalDetector0
             ->expects($this->once())
@@ -145,11 +150,11 @@ class CompositeDetectorTest extends \PHPUnit_Framework_TestCase
 
     public function testLatterDetectorLocates()
     {
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
-        $metadata = $this->getMock('Dflydev\Canal\Metadata\Metadata');
-        $internalDetector0 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
-        $internalDetector1 = $this->getMock('Dflydev\Canal\Detector\DetectorInterface');
-        $expectedInternetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
+        $metadata = $this->getMockBuilder(Metadata::class)->getMock();
+        $internalDetector0 = $this->getMockBuilder(DetectorInterface::class)->getMock();
+        $internalDetector1 = $this->getMockBuilder(DetectorInterface::class)->getMock();
+        $expectedInternetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
 
         $internalDetector0
             ->expects($this->once())

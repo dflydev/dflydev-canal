@@ -2,29 +2,31 @@
 
 namespace Dflydev\Canal\InternetMediaType;
 
-class InternetMediaTypeFactoryTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class InternetMediaTypeFactoryTest extends TestCase
 {
     public function testDefaultConstructor()
     {
-        new InternetMediaTypeFactory;
+        $this->assertInstanceOf(InternetMediaTypeFactory::class, new InternetMediaTypeFactory());
     }
 
     public function testConstructor()
     {
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
 
-        new InternetMediaTypeFactory($internetMediaTypeParser);
+        $this->assertInstanceOf(InternetMediaTypeFactory::class, new InternetMediaTypeFactory($internetMediaTypeParser));
     }
 
     public function testCreateTextPlain()
     {
-        $internetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
         $internetMediaType
             ->expects($this->once())
             ->method('asString')
             ->will($this->returnValue('text/plain'));
 
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
         $internetMediaTypeParser
             ->expects($this->once())
             ->method('parse')
@@ -38,13 +40,13 @@ class InternetMediaTypeFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateTextHtml()
     {
-        $internetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
         $internetMediaType
             ->expects($this->once())
             ->method('asString')
             ->will($this->returnValue('text/html'));
 
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
         $internetMediaTypeParser
             ->expects($this->once())
             ->method('parse')
@@ -58,13 +60,13 @@ class InternetMediaTypeFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateApplicationOctetStream()
     {
-        $internetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
         $internetMediaType
             ->expects($this->once())
             ->method('asString')
             ->will($this->returnValue('application/octet-stream'));
 
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
         $internetMediaTypeParser
             ->expects($this->once())
             ->method('parse')
@@ -78,13 +80,13 @@ class InternetMediaTypeFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateApplicationXml()
     {
-        $internetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
         $internetMediaType
             ->expects($this->once())
             ->method('asString')
             ->will($this->returnValue('application/xml'));
 
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
         $internetMediaTypeParser
             ->expects($this->once())
             ->method('parse')
@@ -98,13 +100,13 @@ class InternetMediaTypeFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateApplicationZip()
     {
-        $internetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
         $internetMediaType
             ->expects($this->once())
             ->method('asString')
             ->will($this->returnValue('application/zip'));
 
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
         $internetMediaTypeParser
             ->expects($this->once())
             ->method('parse')
@@ -118,13 +120,13 @@ class InternetMediaTypeFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateCustomApplication()
     {
-        $internetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
         $internetMediaType
             ->expects($this->once())
             ->method('asString')
             ->will($this->returnValue('application/canal-custom'));
 
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
         $internetMediaTypeParser
             ->expects($this->once())
             ->method('parse')
@@ -138,13 +140,13 @@ class InternetMediaTypeFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateCustomAudio()
     {
-        $internetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
         $internetMediaType
             ->expects($this->once())
             ->method('asString')
             ->will($this->returnValue('audio/canal-custom'));
 
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
         $internetMediaTypeParser
             ->expects($this->once())
             ->method('parse')
@@ -158,13 +160,13 @@ class InternetMediaTypeFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateCustomImage()
     {
-        $internetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
         $internetMediaType
             ->expects($this->once())
             ->method('asString')
             ->will($this->returnValue('image/canal-custom'));
 
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
         $internetMediaTypeParser
             ->expects($this->once())
             ->method('parse')
@@ -178,13 +180,13 @@ class InternetMediaTypeFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateCustomText()
     {
-        $internetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
         $internetMediaType
             ->expects($this->once())
             ->method('asString')
             ->will($this->returnValue('text/canal-custom'));
 
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
         $internetMediaTypeParser
             ->expects($this->once())
             ->method('parse')
@@ -198,13 +200,13 @@ class InternetMediaTypeFactoryTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateCustomVideo()
     {
-        $internetMediaType = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeInterface');
+        $internetMediaType = $this->getMockBuilder(InternetMediaTypeInterface::class)->getMock();
         $internetMediaType
             ->expects($this->once())
             ->method('asString')
             ->will($this->returnValue('video/canal-custom'));
 
-        $internetMediaTypeParser = $this->getMock('Dflydev\Canal\InternetMediaType\InternetMediaTypeParserInterface');
+        $internetMediaTypeParser = $this->getMockBuilder(InternetMediaTypeParserInterface::class)->getMock();
         $internetMediaTypeParser
             ->expects($this->once())
             ->method('parse')

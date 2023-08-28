@@ -2,8 +2,10 @@
 
 namespace Dflydev\Canal\InternetMediaType;
 
+use AllowDynamicProperties;
 use Dflydev\Canal\InternetMediaType\Adapter\Webignition\InternetMediaTypeParser;
 
+#[AllowDynamicProperties]
 class InternetMediaTypeFactory
 {
     const TEXT_PLAIN = 'text/plain';
